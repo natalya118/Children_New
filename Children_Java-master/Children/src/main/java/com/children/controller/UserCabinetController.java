@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.children.model.House;
+import com.children.model.User;
 import com.children.model.WishCategory;
 import com.children.model.viewmodel.ChangeUserModel;
 import com.children.service.HouseRequestService;
@@ -71,8 +72,24 @@ public class UserCabinetController {
 			System.out.println(result.getAllErrors().toString());
 			return "redirect:/admin";
 		}
-
+		User user = userService.findBySSO(getPrincipal());
 		
+		
+		if(updateUser.getSsoId()!=null)
+			user.setSsoId(updateUser.getSsoId());
+		
+		if(updateUser.getEmail()!=null)
+			user.setEmail(updateUser.getEmail());
+		
+		if(updateUser.getFirstName()!=null)
+			user.setEmail(updateUser.getFirstName());
+		
+		if(updateUser.getLastName()!=null)
+			user.setEmail(updateUser.getLastName());
+		if(updateUser.getPassword()!=null)
+			user.setEmail(updateUser.getPassword());
+		if(updateUser.getPhotoUrl()!=null)
+			user.setEmail(updateUser.getPhotoUrl());
 		
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "redirect:/user";
