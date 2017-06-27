@@ -20,8 +20,8 @@ public class PresentStatus {
 		return status;
 	}
 
-	public void setStatus(PresentStatusType status) {
-		this.status = status;
+	public void setStatus(String status) {
+		this.status = PresentStatusType.valueOf(status);
 	}
 
 	public int getId() {
