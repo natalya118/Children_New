@@ -93,8 +93,8 @@ public class ChildDaoImpl extends AbstractDao<Integer, Child> implements ChildDa
 
 	@Override
 	public List<Child> findAllChildrenByHouse(int houseId) {
-		Criteria criteria = createEntityCriteria();
-		criteria.add(Restrictions.eq("house_id", houseId));
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Child.class, "c").createAlias("c.house", "h")
+				 .add(Restrictions.eq("h.id", houseId));
 		List<Child> children = (List<Child>) criteria.list();
 		return children;
 	}
