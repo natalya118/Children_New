@@ -283,7 +283,7 @@
                     <form:textarea path="description" id="description" placeholder="Опис"></form:textarea>
                     <label>Дата народження</label>
                     <form:input path="birthDate" type="date" id="birth"/>
-                    <form:input path="sex" type="text" id="sex" value="3"/>
+                    <form:input path="sex" type="hidden" id="sex" value="3"/>
                 </div>
                 <div class="modal-footer">
                    <input class="btn-submit" type="submit" value="Додати">
