@@ -85,7 +85,7 @@ public class HouseCabinetController {
 	}
 	
 	@Transactional
-	@RequestMapping(value = { "/{id}/newchild" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/house/{id}/newchild" }, method = RequestMethod.POST)
 	public String newCat(@Valid Child child, BindingResult result, @PathVariable int id, ModelMap model) {
 		
 		if (result.hasErrors()) {
