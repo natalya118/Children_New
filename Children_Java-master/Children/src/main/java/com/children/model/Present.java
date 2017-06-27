@@ -13,13 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Present {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(nullable=false)
 	private int id;
 	
-	@Past
 	@NotNull
 	@Column
 	private Date dateOpened;
@@ -27,13 +28,16 @@ public class Present {
 	@Column
 	private Date dateReceived;
 	
+	@NotNull
+	@Length(min=0)
 	@Column
 	private String parcelNumber;
 
-
-	@Column 
+	@NotNull
+	@Column
 	private int wishId;
 	
+	@NotNull
 	@Column 
 	private int presentStatusId;
 	

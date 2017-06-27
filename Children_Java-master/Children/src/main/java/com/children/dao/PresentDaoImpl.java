@@ -7,7 +7,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.children.model.Present;
-import com.children.model.Wish;
 
 @Repository("presentDao")
 public class PresentDaoImpl extends AbstractDao<Integer, Present> implements PresentDao {

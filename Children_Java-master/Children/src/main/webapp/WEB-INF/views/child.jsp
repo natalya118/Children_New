@@ -22,12 +22,8 @@
     <link href="<c:url value='/static/css/imagehover.css'/>" rel="stylesheet" media="all">
     <link rel="stylesheet" type="text/css" href="<c:url value='/static/css/icons.css'/>" />
     <link href="http://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="<c:url value='/static/dist/switchery.css'/>"/>
-
-=======
 	<link rel="stylesheet" href="<c:url value='/static/dist/switchery.css'/>"/>
->>>>>>> refs/remotes/origin/Oleksii
     <link rel="stylesheet" href="<c:url value='/static/css/style.css'/>">
     <link rel="stylesheet" href="<c:url value='/static/css/style-chp.css'/>">
     <link rel="stylesheet" href="<c:url value='/static/css/style-child.css'/>">
@@ -113,7 +109,7 @@
                                     <div class="ch-item ch-img-1" style='background-image: url(${item.category.pictureUrl});'>
                                         <div class="ch-info">
                                             <h3>${item.name }</h3>
-                                            <a data-toggle="modal" data-target="#gift" class="hvr-grow btn btn-primary">Подарувати</a>
+                                            <a data-toggle="modal" data-target="#gift" class="hvr-grow btn btn-primary" onclick="{$('#wishId').val('${item.id}');}">Подарувати</a>
                                         </div>
                                     </div>
                                 </li>
@@ -153,9 +149,15 @@
                         <center><button data-toggle="collapse" data-target="#booking" class="btn-sub">Забронювати</button></center>
 
                         <div id="booking" class="collapse">
-                            <div class="row"><div class="col-md-6"><input class="input-id" type="text" placeholder="Номер замовлення" id="order-id" /></div>
+                        <form action="/Children/completeWish" method="GET">
+                            <div class="row"><div class="col-md-6">
+                            <input name="parcelNumber" class="input-id" type="text" placeholder="Номер замовлення" id="order-id" />
+                            <textarea name="letter" placeholder="Лист щастя" class="input-id" style="height:200px; padding-top:5px;"></textarea>
+                            </div>
                             <div class="can-toggle demo-rebrand-1 col-md-4">
-                                <input id="d" type="checkbox">
+                            <input id="wishId" style="visibility:hidden" name="wishId">
+                            <input style="visibility:hidden" name="userId" value="1">
+                                <input name="prst" id="d" type="checkbox">
                                 <label for="d">
                                     <div class="can-toggle__switch" data-checked="Відправлено" data-unchecked="Заплановано"></div>
                                 </label>
@@ -181,6 +183,7 @@
                                     </center>
                                 </li>
                             </ol>
+	                        </form>
                         </div>
                     </div>
                 </div>
@@ -233,8 +236,8 @@
                         <input name="name" type="text" id="title-wish" placeholder="Назва" />
                         <textarea name="description" id="desc-wish" placeholder="Опис"></textarea>
                         <select name="categoryWish">
-                        	<c:forEach items="${categories}" var="c">
 	                        <option value="" disabled selected>Оберіть категорію бажання</option>
+                        	<c:forEach items="${categories}" var="c">
 	                        <option value="${c.name }">${c.name }</option>
 	                        
 	                        </c:forEach>
