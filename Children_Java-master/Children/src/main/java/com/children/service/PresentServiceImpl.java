@@ -40,4 +40,9 @@ private PresentDao pd;
 		return pd.findAllPresentsByUser(userId);
 	}
 
+	@Override
+	public List<Present> findAllPresentsByHouse(int houseId) {
+		return pd.findAllPresentsByHouse(houseId);
+	}
+
 }

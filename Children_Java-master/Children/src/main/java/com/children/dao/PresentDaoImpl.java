@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.children.model.Present;
+import com.children.model.Wish;
 
 @Repository("presentDao")
 public class PresentDaoImpl extends AbstractDao<Integer, Present> implements PresentDao {
@@ -46,6 +47,12 @@ public class PresentDaoImpl extends AbstractDao<Integer, Present> implements Pre
 		criteria.add(Restrictions.eq("userId", userId));
 		List<Present> presents = (List<Present>) criteria.list();
 		return presents;
+	}
+
+	@Override
+	public List<Present> findAllPresentsByHouse(int houseId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

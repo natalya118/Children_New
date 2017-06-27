@@ -49,6 +49,10 @@ public class House implements Serializable{
 	@Column
 	private String description;
 	
+	@NotEmpty
+	@Column
+	private String urlPhoto;
+	
 	private int numberOfChildren;
 	
 	
@@ -117,6 +121,14 @@ public class House implements Serializable{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getUrlPhoto() {
+		return urlPhoto;
+	}
+
+	public void setUrlPhoto(String urlPhoto) {
+		this.urlPhoto = urlPhoto;
 	}
 	
 

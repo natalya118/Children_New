@@ -38,6 +38,9 @@
 
 </head>
 <body>
+
+<c:set scope="page" value="anonymousUser" var="anon"/>
+
 	<div class="usertab">
 		<div class="img-border"></div>
 		<div class="userpic"></div>
@@ -50,8 +53,8 @@
 			</div>
 		</center>
 		<ul class="btns">
-			<li><a>Кабінет</a></li>
-			<li><a>Вийти</a></li>
+        <li><a href="/user">Кабінет</a></li>
+        <li><a href="/logout">Вийти</a></li>
 		</ul>
 	</div>
 	<header role="banner" id="fh5co-header">

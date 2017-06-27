@@ -102,8 +102,6 @@ public String editChild(ModelMap model, @Valid Child child, BindingResult br) {
 		model.addAttribute("status","error");
 		return "redirect:/all";
 	}
-	
-	System.out.println("child "+child.getId());
 	childrenService.updateChild(child);
 	return "redirect:/all";
 }
@@ -117,6 +115,7 @@ public String editChild(ModelMap model, @Valid Child child, BindingResult br) {
 		} else {
 			userName = principal.toString();
 		}
+		System.out.println(userName);
 		return userName;
 	}
 

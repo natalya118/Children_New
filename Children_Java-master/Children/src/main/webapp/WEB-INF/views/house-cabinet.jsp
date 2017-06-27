@@ -28,6 +28,9 @@
 
 </head>
 <body>
+
+<c:set scope="page" value="anonymousUser" var="anon"/>
+
  <div class="usertab">
         <div class="img-border"></div>
         <div class="userpic"></div>
@@ -35,8 +38,8 @@
         <div class="gifts-info"><div class="centered"><i class="fa fa-gift"></i><span>&nbsp;&nbsp;&nbsp;200 подарунків</span></div></div>
             </center>
         <ul class="btns">
-        <li><a>Кабінет</a></li>
-        <li><a>Вийти</a></li>
+        <li><a href="/user">Кабінет</a></li>
+        <li><a href="/logout">Вийти</a></li>
         </ul>
     </div>
   <header role="banner" id="fh5co-header">
@@ -44,7 +47,7 @@
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
                     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                    <a class="navbar-brand" href="index.html">Children</a>
+                    <a class="navbar-brand" href="/">Children</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -85,7 +88,7 @@
                                 <div class="row">
                                     <div class="col-md-12 subtext single-animate animate-press-2">
                                         <div class="main clearfix">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis accumsan tortor. Duis bibendum justo quis lectus tempor venenatis ut nec purus. Pellentesque est eros, auctor eu nisl ut, rhoncus rutrum purus. In fringilla convallis sapien a dictum. Duis consectetur ullamcorper laoreet. Aliquam laoreet tincidunt molestie.
+                                        	${house.description }
                                         </div>
                                     </div>
                                 </div>
@@ -103,12 +106,12 @@
                                 <div class="col-md-6">
                                    
                                     <div class="fh5co-press-item to-animate">
-                                        <div class="fh5co-press-img" style="background-image: url(${c.photoUrl})">
+                                        <div class="fh5co-press-img" style="background-image: url(${c.photo})">
                                         </div>
                                         <div class="fh5co-press-text">
-                                            <h3 class="h2 fh5co-press-title">${c.photoUrl} <span class="fh5co-border"></span></h3>
+                                            <h3 class="h2 fh5co-press-title">${c.firstName} ${c.lastName}<span class="fh5co-border"></span></h3>
                                             <h2 class="fh5co-press-title years">12 років</h2>
-                                            <p>${c.photoUrl}</p>
+                                            <p>${c.description}</p>
                                             <a href="/child?id=${c.id}" class="btn btn-primary btn-sm">Дізнатися більше</a>
                                         </div>
 
@@ -144,40 +147,28 @@
                 <section id="section-linemove-4">
                     <div id="fh5co-press" data-section="press">
                         <div class="container">
+                        <c:forEach items="${wishes}" var="item">
                             <div class="row">
-                         
                                 <div class="col-md-6">
                                     <div class="fh5co-press-item to-animate">
-                                        <div class="fh5co-press-img" style="background-image: url(http://www.pravsworld.com/wp-content/uploads/2013/12/Child-Smile-e1402671131894.jpg)">
+                                        <div class="fh5co-press-img" style="background-image: url(${item.wish.category.pictureUrl})">
                                         </div>
                                         <div class="fh5co-press-text">
-                                            <h3 class="h2 fh5co-press-title">Іграшка для <a href="#linktochild">Вася</a><span class="fh5co-border"></span></h3>
+                                            <h3 class="h2 fh5co-press-title">${item.wish.category.name} для <a href="/child?id=${item.wish.child.id}">${item.wish.child.firstName}</a><span class="fh5co-border"></span></h3>
                                             <div class="gift-info">
-                                                <h2 class="fh5co-press-title years"><strong>від </strong>user123</h2>
-                                                <p><strong>Номер замовлення:</strong> 4892348934</p>
-                                                <p><strong>Дата створення:</strong> 12-12-2016</p>
+                                                <h2 class="fh5co-press-title years"><strong>Від </strong>${item.user.firstName}</h2>
+                                                <p><strong>Номер замовлення:</strong> ${item.parcelNumber }</p>
+                                                <p><strong>Дата створення:</strong> ${item.dateOpened }</p>
                                             </div>
                                             <nav class="cl-effect-5">
-                                                <a href="#" data-toggle="modal" data-target="#accept" class="btn btn-primary"><span data-hover="Обробити подарунок">Статус: заплановано</span></a>
+                                                <a href="#" data-toggle="modal" data-target="#accept" class="btn btn-primary"><span data-hover="Обробити подарунок">Статус: ${item.presentStatus.status.presentStatusType }</span></a>
                                             </nav>
                                         </div>
 
                                     </div>
                                 </div>
-
-                                <div class="col-md-6">
-                                    <div class="fh5co-press-item to-animate">
-                                        <div class="fh5co-press-img" style="background-image: url(https://www.barnardos.org.uk/how-to-adopt-a-child-in-scotland-top-banner.jpg)">
-                                        </div>
-                                        <div class="fh5co-press-text">
-                                            <h3 class="h2 fh5co-press-title">Катя <span class="fh5co-border"></span></h3>
-                                            <h2 class="fh5co-press-title years">10 років</h2>
-                                            <p>Любить малювати</p>
-                                            <a href="#" class="btn btn-primary btn-sm">Дізнатися більше</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+							</div>
+							</c:forEach>
                             <center>
 
                                 <div>
@@ -215,14 +206,18 @@
                     <h4 class="modal-title">Редагувати інформацію про будинок</h4>
                 </div>
                 <div class="modal-body">
+                <form action="" method="POST">
                     <button class="btn btn-default" data-toggle="modal" data-target="#del-house">Видалити будинок</button>
-                    <input type="text" id="title" placeholder="Назва" />
-                    <textarea id="description" placeholder="Опис"></textarea>
-                    <input type="text" id="address" placeholder="Адреса" />
-                    <input type="text" id="pic" placeholder="URL фото будинку" />
+                    <input name="name" type="text" id="title" placeholder="Назва" />
+                    <textarea name="description" id="description" placeholder="Опис"></textarea>
+                    <input name="city" type="text" id="address" placeholder="Місто" />
+                    <input name="street" type="text" id="address" placeholder="Вулиця" />
+                    <input name="number" type="text" id="address" placeholder="Номер дому" />
+                    <input name="" type="text" id="pic" placeholder="URL фото будинку" />
+                    <button type="button" class="btn-sub" data-dismiss="modal">Зберегти</button>
+                </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-sub" data-dismiss="modal">Зберегти</button>
                 </div>
             </div>
 

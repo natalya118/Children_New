@@ -23,6 +23,7 @@
 	href="<c:url value='/static/css/style.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/static/css/style-login.css'/>" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="<c:url value='/static/js/modernizr.custom.js'/>"></script>
 </head>
 <body>
@@ -33,17 +34,11 @@
 			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"
 				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 				aria-controls="navbar"><i></i></a> <a class="navbar-brand"
-				href="index.html">Children</a>
+				href="/">Children</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="#" data-nav-section="home"><span>Головна</span></a></li>
-				<li><a href="#" data-nav-section="about"><span>Про
-							нас</span></a></li>
-				<li><a href="#" data-nav-section="testimonials"><span>Як
-							працює</span></a></li>
-				<li><a href="#" data-nav-section="press"><span>Діти</span></a></li>
-				<li><a href="#" class="login-btn hvr-reveal"><span>Увійти</span></a></li>
+				<li class="active"><a href="/"><span>Головна</span></a></li>
 			</ul>
 		</div>
 		</nav>

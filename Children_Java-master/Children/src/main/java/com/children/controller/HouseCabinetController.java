@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.children.dao.WishCategoryDao;
 import com.children.model.Child;
+import com.children.model.House;
 import com.children.model.Wish;
 import com.children.model.WishCategory;
 import com.children.model.viewmodel.ChangeUserModel;
@@ -30,6 +31,7 @@ import com.children.service.ChildrenService;
 import com.children.service.ChildrenServiceImpl;
 import com.children.service.HouseRequestService;
 import com.children.service.HouseService;
+import com.children.service.PresentService;
 import com.children.service.UserProfileService;
 import com.children.service.UserService;
 import com.children.service.WishCategoryService;
@@ -67,6 +69,8 @@ public class HouseCabinetController {
 
 	@Autowired
 	AuthenticationTrustResolver authenticationTrustResolver;
+	@Autowired
+	private PresentService presentService;
 	
 	@Transactional
 	@RequestMapping(value = { "/house/{id}" }, method = RequestMethod.GET)
@@ -76,7 +80,7 @@ public class HouseCabinetController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		model.addAttribute("updateUser", new ChangeUserModel());
 		model.addAttribute("children", childrenService.findAllChildrenByHouse(id));
-		
+		model.addAttribute("wishes", presentService.findAllPresents());
 		return "house-cabinet";
 	}
 	
@@ -98,6 +102,21 @@ public class HouseCabinetController {
 		return "redirect:/house";
 	}
 	
+	@Transactional
+	@RequestMapping(value = { "/edit_house" }, method = RequestMethod.GET)
+	public String newCat(@Valid House house, BindingResult result, @PathVariable int id, ModelMap model) {
+		
+		if (result.hasErrors()) {
+			System.out.println(result.getAllErrors().toString());
+			return "redirect:/house/"+id;
+		}
+		
+		houseService.updateHouse(house);
+		model.addAttribute("loggedinuser", getPrincipal());
+
+		// return "success";
+		return "redirect:/house/"+id;
+	}
 	@Transactional(readOnly=false)
 	@RequestMapping(value={"/addWishMyOwn"}, method=RequestMethod.GET)
 	public String addWish(Model m, @RequestParam(name="categoryWish", required=false) String wishCategory,@RequestParam("childId") int childId, @Valid Wish w, BindingResult bindingResult){
