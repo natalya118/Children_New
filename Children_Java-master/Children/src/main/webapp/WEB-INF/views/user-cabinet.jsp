@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,6 +29,9 @@
 
 </head>
 <body>
+
+<c:set scope="page" value="anonymousUser" var="anon"/>
+
 <script type="text/javascript">
 window.fbAsyncInit = function() {
     FB.init({
@@ -39,7 +42,6 @@ window.fbAsyncInit = function() {
     });
     FB.AppEvents.logPageView();   
   };
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -55,8 +57,8 @@ window.fbAsyncInit = function() {
         <div class="gifts-info"><div class="centered"><i class="fa fa-gift"></i><span>&nbsp;&nbsp;&nbsp;200 подарунків</span></div></div>
             </center>
         <ul class="btns">
-        <li><a>Кабінет</a></li>
-        <li><a>Вийти</a></li>
+        <li><a href="/all">Діти</a></li>
+        <li><a href="/logout">Вийти</a></li>
         </ul>
     </div>
     <header role="banner" id="fh5co-header">
@@ -64,12 +66,11 @@ window.fbAsyncInit = function() {
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
                     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                    <a class="navbar-brand" href="index.html">Children</a>
+                    <a class="navbar-brand" href="/">Children</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span>Головна</span></a></li>
-                        <li><a href="#" class="login-btn hvr-reveal"><span>Увійти</span></a></li>
+                        <li><a href="/"><span>Головна</span></a></li>
                         <li><a id="user-nav"><i class="fa fa-user-circle-o"></i></a></li>
                     </ul>
                 </div>
@@ -210,11 +211,20 @@ window.fbAsyncInit = function() {
                 <form:form method="POST" modelAttribute="updateUser"
 					action="updateUser">
                 <div class="modal-body">
+<<<<<<< HEAD
                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
+=======
+                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
+>>>>>>> master
                      <form:input path="lastName" type="text" id="ln" placeholder="Прізвище" />
                      <form:input path="email" type="text" id="email" placeholder="E-mail" />
                      <form:input path="ssoId" type="text" id="sso" placeholder="Логін" />
                      <form:input path="password" type="password" id="pass" placeholder="Новий пароль" />
+<<<<<<< HEAD
+=======
+                    <form:input path="photoUrl" type="text" id="av" placeholder="URL аватарки" />
+                    
+>>>>>>> master
                      
                     
                     
@@ -222,7 +232,11 @@ window.fbAsyncInit = function() {
                 <div class="modal-footer">
                    <input class="btn-submit" type="submit" value="Зберегти">
                 </div>
+<<<<<<< HEAD
                 </form:form>
+=======
+                </form:form> 
+>>>>>>> master
             </div>
         </div>
     </div>
@@ -256,11 +270,9 @@ window.fbAsyncInit = function() {
         });
     });
         (function() {
-
             [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
                 new CBPFWTabs(el);
             });
-
         })();
     </script>
 

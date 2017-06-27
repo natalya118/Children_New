@@ -48,6 +48,7 @@ public class RegistrationController {
 
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
 	public String registrationRender(ModelMap model) {
+		if(!getPrincipal().equals("anonymousUser")) return "redirect:/all";
 		model.addAttribute("user", new User());
 		return "login";
 	}
@@ -64,17 +65,17 @@ public class RegistrationController {
 			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
 					new String[] { user.getSsoId() }, Locale.getDefault()));
 			result.addError(ssoError);
-			return "success";
+			return "redirect:/login";
 		}
-		Set<UserProfile> userProfiles = new HashSet<UserProfile>();
-		userProfiles.add(userProfileService.findById(1));
-		user.setUserProfiles(userProfiles);
+//		Set<UserProfile> userProfiles = new HashSet<UserProfile>();
+//		userProfiles.add(userProfileService.findById(1)));
+//		user.setUserProfiles(userProfiles);
 		userService.saveUser(user);
 
 		model.addAttribute("loggedinuser", getPrincipal());
 
 		// return "success";
-		return "children";
+		return "redirect:/login";
 	}
 
 	private String getPrincipal() {

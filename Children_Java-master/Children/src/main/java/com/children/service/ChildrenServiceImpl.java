@@ -83,16 +83,13 @@ public class ChildrenServiceImpl implements ChildrenService{
 		int i=0;
 		for(Wish w: childWishes){
 			i++;
-			System.out.println("Added "+w.getName());
 			part.add(w);
 			if(i%3==0){
-				System.out.println("Putting "+part.size()+" elements;");
 				ret.add(part);
 				part = new ArrayList<Wish>();
 			}
 		}
 		if(i%3!=0){
-			System.out.println("Putting "+part.size()+" elements;");
 			ret.add(part);
 		}
 		return ret;

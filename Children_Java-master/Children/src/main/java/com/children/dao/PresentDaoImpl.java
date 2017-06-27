@@ -49,6 +49,12 @@ public class PresentDaoImpl extends AbstractDao<Integer, Present> implements Pre
 		return presents;
 	}
 
+	@Override
+	public List<Present> findAllPresentsByHouse(int houseId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 

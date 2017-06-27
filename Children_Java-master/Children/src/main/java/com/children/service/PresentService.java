@@ -1,12 +1,11 @@
-package com.children.dao;
+package com.children.service;
 
 import java.util.List;
 
 import com.children.model.Present;
-import com.children.model.Wish;
 
+public interface PresentService {
 
-public interface PresentDao {
 	Present findById(Integer integer);
 	
 	void save(Present present);
@@ -16,7 +15,6 @@ public interface PresentDao {
 	List<Present> findAllPresents();
 
 	List<Present> findAllPresentsByUser(String userId);
-
-	List<Present> findAllPresentsByHouse(int houseId);
 	
+	List<Present> findAllPresentsByHouse(int userId);
 }

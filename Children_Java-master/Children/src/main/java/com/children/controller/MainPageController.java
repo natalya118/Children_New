@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.children.model.HouseRequest;
+import com.children.service.ChildrenService;
 import com.children.service.HouseRequestService;
 import com.children.service.UserProfileService;
 import com.children.service.UserService;
 
 @Controller
 public class MainPageController {
+	@Autowired
+	ChildrenService childrenService;
 	@Autowired
 	UserService userService;
 
@@ -40,11 +43,12 @@ public class MainPageController {
 
 	@Autowired
 	AuthenticationTrustResolver authenticationTrustResolver;
-
+	@Transactional
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String getMainPage(ModelMap model) {
 		model.addAttribute("request", new HouseRequest());
 		model.addAttribute("loggedinuser", getPrincipal());
+		model.addAttribute("children",childrenService.getAllChildrenByPage(1,2));
 		return "index";
 	}
 
@@ -59,7 +63,7 @@ public class MainPageController {
 		}
 
 		houseRequestService.saveHouseRequest(request);
-		model.addAttribute("message", "Вашу заявку надіслано!");
+		model.addAttribute("message", "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!");
 		model.addAttribute("loggedinuser", getPrincipal());
 
 		return "redirect:/";
