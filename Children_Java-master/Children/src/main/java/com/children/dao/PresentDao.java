@@ -16,6 +16,7 @@ public interface PresentDao {
 	List<Present> findAllPresents();
 
 	List<Present> findAllPresentsByUser(String userId);
-	
+
+	List<Present> findAllPresentsByHouse(int houseId);
 	
 }

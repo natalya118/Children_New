@@ -32,11 +32,12 @@ public class WishController {
 	
 	@Transactional
 @RequestMapping(value="/completeWish", method=RequestMethod.GET)
-public String complete(@RequestParam(name="prst",required=false) String presentStatus, @RequestParam("userId") int userId,@Valid Present p, BindingResult br){
+public String complete(@RequestParam(name="wishId",required=false) int wishId, @RequestParam(name="prst",required=false) String presentStatus, @RequestParam("userId") int userId,@Valid Present p, BindingResult br){
 	p.setUser(us.findById(userId));
 	p.setDateOpened(Date.valueOf(LocalDate.now()));
-	p.setPresentStatusId(presentStatusService.findByName((presentStatus==null)?"CREATED":"INPROGRESS").getId());
+	p.setWish(ws.findById(wishId));
+	p.setPresentStatus(presentStatusService.findByName((presentStatus==null)?"CREATED":"INPROGRESS"));
 	presentService.save(p);
-	return "redirect:/child?id="+ws.findById(p.getWishId()).getChild().getId();
+	return "redirect:/child?id="+p.getWish().getChild().getId();
 }
 }

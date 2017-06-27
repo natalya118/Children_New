@@ -59,7 +59,7 @@ public class Child implements Serializable {
 	@Column
 	private String description;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "house_id")
 	private House house;
 	

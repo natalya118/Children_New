@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -33,19 +32,20 @@ public class Present {
 	@Column
 	private String parcelNumber;
 
-	@NotNull
-	@Column
-	private int wishId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "wish_id")
+	private Wish wish;
 	
 	@NotNull
-	@Column 
-	private int presentStatusId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "presentStatus_id")
+	private PresentStatus presentStatus;
 	
 	@Column
 	private String letter;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	private User user;
 	public int getId() {
@@ -72,11 +72,11 @@ public class Present {
 	public void setParcelNumber(String parcelNumber) {
 		this.parcelNumber = parcelNumber;
 	}
-	public int getWishId() {
-		return wishId;
+	public Wish getWish() {
+		return wish;
 	}
-	public void setWishId(int wishId) {
-		this.wishId = wishId;
+	public void setWish(Wish wish) {
+		this.wish = wish;
 	}
 	public String getLetter() {
 		return letter;
@@ -90,13 +90,12 @@ public class Present {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getPresentStatusId() {
-		return presentStatusId;
+	public PresentStatus getPresentStatus() {
+		return presentStatus;
 	}
-	public void setPresentStatusId(int presentStatusId) {
-		this.presentStatusId = presentStatusId;
+	public void setPresentStatus(PresentStatus presentStatus) {
+		this.presentStatus = presentStatus;
 	}
-	
 	
 	
 }

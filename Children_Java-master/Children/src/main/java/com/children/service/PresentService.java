@@ -15,4 +15,6 @@ public interface PresentService {
 	List<Present> findAllPresents();
 
 	List<Present> findAllPresentsByUser(String userId);
+	
+	List<Present> findAllPresentsByHouse(int userId);
 }

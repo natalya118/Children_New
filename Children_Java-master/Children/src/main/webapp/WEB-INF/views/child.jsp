@@ -28,8 +28,12 @@
     <link rel="stylesheet" href="<c:url value='/static/css/style-chp.css'/>">
     <link rel="stylesheet" href="<c:url value='/static/css/style-child.css'/>">
     <link rel="stylesheet" href="<c:url value='/static/css/usertab.css'/>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+<c:set scope="page" value="anonymousUser" var="anon"/>
+
  <div class="usertab">
         <div class="img-border"></div>
         <div class="userpic"></div>
@@ -37,8 +41,8 @@
         <div class="gifts-info"><div class="centered"><i class="fa fa-gift"></i><span>&nbsp;&nbsp;&nbsp;200 подарунків</span></div></div>
             </center>
         <ul class="btns">
-        <li><a>Кабінет</a></li>
-        <li><a>Вийти</a></li>
+        <li><a href="/user">Кабінет</a></li>
+        <li><a href="/logout">Вийти</a></li>
         </ul>
     </div>
 	<header role="banner" id="fh5co-header">
@@ -46,13 +50,13 @@
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
                     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                    <a class="navbar-brand" href="index.html">Children</a>
+                    <a class="navbar-brand" href="/">Children</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span>Головна</span></a></li>
-                        <li><a href="#" class="login-btn hvr-reveal"><span>Увійти</span></a></li>
-                        <li><a id="user-nav"><i class="fa fa-user-circle-o"></i></a></li>
+                        <c:if test="${loggedinuser eq anon}"><li><a href="#" class="login-btn hvr-reveal"><span>Увійти</span></a></li></c:if>
+                        <c:if test="${loggedinuser ne anon}"><li><a id="user-nav"><i class="fa fa-user-circle-o"></i></a></li></c:if>
                     </ul>
                 </div>
             </nav>
@@ -149,7 +153,7 @@
                         <center><button data-toggle="collapse" data-target="#booking" class="btn-sub">Забронювати</button></center>
 
                         <div id="booking" class="collapse">
-                        <form action="/Children/completeWish" method="GET">
+                        <form action="/completeWish" method="GET">
                             <div class="row"><div class="col-md-6">
                             <input name="parcelNumber" class="input-id" type="text" placeholder="Номер замовлення" id="order-id" />
                             <textarea name="letter" placeholder="Лист щастя" class="input-id" style="height:200px; padding-top:5px;"></textarea>
