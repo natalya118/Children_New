@@ -211,34 +211,13 @@ window.fbAsyncInit = function() {
                 <form:form method="POST" modelAttribute="updateUser"
 					action="updateUser">
                 <div class="modal-body">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
-=======
                  <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
->>>>>>> master
-=======
-                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
->>>>>>> master
-=======
-                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
->>>>>>> master
                      <form:input path="lastName" type="text" id="ln" placeholder="Прізвище" />
                      <form:input path="email" type="text" id="email" placeholder="E-mail" />
                      <form:input path="ssoId" type="text" id="sso" placeholder="Логін" />
                      <form:input path="password" type="password" id="pass" placeholder="Новий пароль" />
-<<<<<<< HEAD
-=======
                     <form:input path="photoUrl" type="text" id="av" placeholder="URL аватарки" />
                     
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
                      
                     
                     
@@ -246,19 +225,7 @@ window.fbAsyncInit = function() {
                 <div class="modal-footer">
                    <input class="btn-submit" type="submit" value="Зберегти">
                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                </form:form>
-=======
                 </form:form> 
->>>>>>> master
-=======
-                </form:form> 
->>>>>>> master
-=======
-                </form:form> 
->>>>>>> master
             </div>
         </div>
     </div>
