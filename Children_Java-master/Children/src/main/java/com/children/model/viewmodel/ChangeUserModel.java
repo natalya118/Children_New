@@ -14,6 +14,7 @@ public class ChangeUserModel {
 	private String lastName;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Integer getId() {
 		return id;
 	}
@@ -62,6 +63,8 @@ public class ChangeUserModel {
 		this.email = email;
 	}
 
+=======
+>>>>>>> master
 =======
 >>>>>>> master
 	private String email;

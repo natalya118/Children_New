@@ -213,7 +213,11 @@ window.fbAsyncInit = function() {
                 <div class="modal-body">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
+=======
+                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
+>>>>>>> master
 =======
                  <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
 >>>>>>> master
@@ -229,6 +233,9 @@ window.fbAsyncInit = function() {
                     <form:input path="photoUrl" type="text" id="av" placeholder="URL аватарки" />
                     
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 =======
 >>>>>>> master
@@ -241,7 +248,11 @@ window.fbAsyncInit = function() {
                 </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </form:form>
+=======
+                </form:form> 
+>>>>>>> master
 =======
                 </form:form> 
 >>>>>>> master
