@@ -13,6 +13,7 @@ public class ChangeUserModel {
 
 	private String lastName;
 
+<<<<<<< HEAD
 	public Integer getId() {
 		return id;
 	}
@@ -61,6 +62,8 @@ public class ChangeUserModel {
 		this.email = email;
 	}
 
+=======
+>>>>>>> master
 	private String email;
 	
 	private String photoUrl;
