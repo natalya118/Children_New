@@ -60,7 +60,7 @@ public class User implements Serializable {
 
 	@NotNull
 	@Length(min=3)
-	@Pattern(regexp="^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
+	//@Pattern(regexp="^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
 	@Email
 	@Column(name = "email")
 	private String email;

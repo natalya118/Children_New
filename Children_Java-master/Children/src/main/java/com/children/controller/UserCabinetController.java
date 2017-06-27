@@ -60,6 +60,7 @@ public class UserCabinetController {
 	public String getMainPage(ModelMap model) {
 		model.addAttribute("loggedinuser", getPrincipal());
 		model.addAttribute("updateUser", new ChangeUserModel());
+		model.addAttribute("curUser", userService.findBySSO(getPrincipal()));
 		
 		return "user-cabinet";
 	}
