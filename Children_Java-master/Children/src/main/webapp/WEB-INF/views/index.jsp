@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 to-animate">
-                    <img src="<c:url value='/static/images/img_1.jpg'/>" class="img-responsive img-rounded">
+                    <img src="https://i.ytimg.com/vi/zUoXXswssSo/maxresdefault.jpg" class="img-responsive img-rounded">
                 </div>
                 <div class="col-md-4 to-animate">
                     <h2>Мета проекту</h2>

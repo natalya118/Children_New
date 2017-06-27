@@ -49,7 +49,7 @@ public class House implements Serializable{
 	@Column
 	private String description;
 	
-	@NotEmpty
+	
 	@Column
 	private String urlPhoto;
 	
