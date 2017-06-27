@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,7 +39,6 @@ window.fbAsyncInit = function() {
     });
     FB.AppEvents.logPageView();   
   };
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -210,16 +209,21 @@ window.fbAsyncInit = function() {
                 <form:form method="POST" modelAttribute="updateUser"
 					action="updateUser">
                 <div class="modal-body">
-                <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
-                <form:input path="lastName" type="text" id="ln" placeholder="Прізвище" />
-                <form:input path="email" type="text" id="email" placeholder="E-mail" />
-                <form:input path="ssoId" type="text" id="sso" placeholder="Логін" />
-                <form:input path="password" type="password" id="pass" placeholder="Новий пароль" />
+                 <form:input path="firstName" type="text" id="fn" placeholder="Ім'я" />
+                     <form:input path="lastName" type="text" id="ln" placeholder="Прізвище" />
+                     <form:input path="email" type="text" id="email" placeholder="E-mail" />
+                     <form:input path="ssoId" type="text" id="sso" placeholder="Логін" />
+                     <form:input path="password" type="password" id="pass" placeholder="Новий пароль" />
+                    <form:input path="photoUrl" type="text" id="av" placeholder="URL аватарки" />
+                    
+                     
+                    
+                    
                 </div>
                 <div class="modal-footer">
                    <input class="btn-submit" type="submit" value="Зберегти">
                 </div>
-                </form:form>
+                </form:form> 
             </div>
         </div>
     </div>
@@ -253,11 +257,9 @@ window.fbAsyncInit = function() {
         });
     });
         (function() {
-
             [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
                 new CBPFWTabs(el);
             });
-
         })();
     </script>
 

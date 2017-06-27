@@ -276,8 +276,8 @@ window.fbAsyncInit = function() {
                     </div>
                 </div>
 				<center>
-                    <a href="all" class="btn btn-primary allchildren">Усі діти</button>
-                </center>
+					<a href="all" class="btn btn-primary allchildren">Усі діти</a>
+				</center>
 
             </div>
         </div>

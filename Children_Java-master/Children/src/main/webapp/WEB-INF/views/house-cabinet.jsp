@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -75,10 +77,10 @@
                         </div>
                         <div class="col-md-6 section-heading-main text-center">
                             <div>
-                                <h2 class="single-animate animate-press-1">Дитбудинок "Сонечко"</h2>
+                                <h2 class="single-animate animate-press-1">${house.name}</h2>
                                 <div class="child-info">
-                                    <div>120 дітей</div>
-                                    <div>Київ, вул. Сонячна, 12</div>
+                                    <div>${house.numberOfChildren } дітей</div>
+                                    <div>${house.city}, ${house.street}, ${house.number}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 subtext single-animate animate-press-2">
@@ -97,32 +99,23 @@
                     <div id="fh5co-press" data-section="press">
                         <div class="container">
                             <div class="row">
+                            <c:forEach items="${children}" var="c">
                                 <div class="col-md-6">
+                                   
                                     <div class="fh5co-press-item to-animate">
-                                        <div class="fh5co-press-img" style="background-image: url(http://www.pravsworld.com/wp-content/uploads/2013/12/Child-Smile-e1402671131894.jpg)">
+                                        <div class="fh5co-press-img" style="background-image: url(${c.photoUrl})">
                                         </div>
                                         <div class="fh5co-press-text">
-                                            <h3 class="h2 fh5co-press-title">Вася <span class="fh5co-border"></span></h3>
+                                            <h3 class="h2 fh5co-press-title">${c.photoUrl} <span class="fh5co-border"></span></h3>
                                             <h2 class="fh5co-press-title years">12 років</h2>
-                                            <p>Мріє про родину</p>
-                                            <a href="#" class="btn btn-primary btn-sm">Дізнатися більше</a>
+                                            <p>${c.photoUrl}</p>
+                                            <a href="/child?id=${c.id}" class="btn btn-primary btn-sm">Дізнатися більше</a>
                                         </div>
 
                                     </div>
                                 </div>
+</c:forEach>
 
-                                <div class="col-md-6">
-                                    <div class="fh5co-press-item to-animate">
-                                        <div class="fh5co-press-img" style="background-image: url(https://www.barnardos.org.uk/how-to-adopt-a-child-in-scotland-top-banner.jpg)">
-                                        </div>
-                                        <div class="fh5co-press-text">
-                                            <h3 class="h2 fh5co-press-title">Катя <span class="fh5co-border"></span></h3>
-                                            <h2 class="fh5co-press-title years">10 років</h2>
-                                            <p>Любить малювати</p>
-                                            <a href="#" class="btn btn-primary btn-sm">Дізнатися більше</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <center>
 
@@ -152,6 +145,7 @@
                     <div id="fh5co-press" data-section="press">
                         <div class="container">
                             <div class="row">
+                         
                                 <div class="col-md-6">
                                     <div class="fh5co-press-item to-animate">
                                         <div class="fh5co-press-img" style="background-image: url(http://www.pravsworld.com/wp-content/uploads/2013/12/Child-Smile-e1402671131894.jpg)">
@@ -285,16 +279,20 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Додати дитину</h4>
                 </div>
+                <form:form method="POST" modelAttribute="child"
+					action="${house.id }/newchild">
                 <div class="modal-body">
-                    <input type="text" id="firstname" placeholder="Ім'я" />
-                    <input type="text" id="lastname" placeholder="Прізвище" />
-                    <textarea id="description" placeholder="Опис"></textarea>
+                <h1>hhhh ${house.id }</h1>
+                   <form:input path="firstName" type="text" id="firstname" placeholder="Ім'я" />
+                    <form:input path="lastName" type="text" id="lastname" placeholder="Прізвище" />
+                    <form:textarea path="description" id="description" placeholder="Опис"></form:textarea>
                     <label>Дата народження</label>
-                    <input type="date" id="birth"/>
+                    <form:input path="birthDate" type="date" id="birth"/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-sub" data-dismiss="modal">Додати</button>
+                   <input class="btn-submit" type="submit" value="Додати">
                 </div>
+                </form:form>
             </div>
 
         </div>

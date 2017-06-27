@@ -66,9 +66,9 @@ public class RegistrationController {
 			result.addError(ssoError);
 			return "success";
 		}
-		Set<UserProfile> userProfiles = new HashSet<UserProfile>();
-		userProfiles.add(userProfileService.findById(1));
-		user.setUserProfiles(userProfiles);
+//		Set<UserProfile> userProfiles = new HashSet<UserProfile>();
+//		userProfiles.add(userProfileService.findById(1)));
+//		user.setUserProfiles(userProfiles);
 		userService.saveUser(user);
 
 		model.addAttribute("loggedinuser", getPrincipal());
