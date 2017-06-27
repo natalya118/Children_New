@@ -64,7 +64,7 @@ public class House implements Serializable{
 		this.numberOfChildren = numberOfChildren;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "house", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "house", cascade = CascadeType.PERSIST)
 	private Set<Child> children; 
 	
 	public Set<Child> getChildren() {

@@ -59,11 +59,11 @@ public class Child implements Serializable {
 	@Column
 	private String description;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "house_id")
 	private House house;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "child", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "child", cascade = CascadeType.PERSIST)
 	private Set<Wish> wishes; 
 	
 	public int getId() {

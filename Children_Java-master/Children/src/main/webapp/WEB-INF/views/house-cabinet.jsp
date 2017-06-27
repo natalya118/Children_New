@@ -275,7 +275,7 @@
                     <h4 class="modal-title">Додати дитину</h4>
                 </div>
                 <form:form method="POST" modelAttribute="child"
-					action="${house.id }/newchild">
+					action="/house/${house.id }/newchild">
                 <div class="modal-body">
                 <h1>hhhh ${house.id }</h1>
                    <form:input path="firstName" type="text" id="firstname" placeholder="Ім'я" />
@@ -283,6 +283,7 @@
                     <form:textarea path="description" id="description" placeholder="Опис"></form:textarea>
                     <label>Дата народження</label>
                     <form:input path="birthDate" type="date" id="birth"/>
+                    <form:input path="sex" type="text" id="sex" value="3"/>
                 </div>
                 <div class="modal-footer">
                    <input class="btn-submit" type="submit" value="Додати">

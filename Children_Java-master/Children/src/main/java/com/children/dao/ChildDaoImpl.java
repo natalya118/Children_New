@@ -48,6 +48,7 @@ public class ChildDaoImpl extends AbstractDao<Integer, Child> implements ChildDa
 
 	@Override
 	public void save(Child child) {
+		System.out.println("in dao" + child.toString() + child.getHouse().getId());
 		persist(child);
 		
 	}

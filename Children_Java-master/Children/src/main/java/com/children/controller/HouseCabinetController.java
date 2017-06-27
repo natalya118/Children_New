@@ -1,8 +1,11 @@
 package com.children.controller;
 
 
+import java.util.HashSet;
+
 import javax.validation.Valid;
 
+import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -81,20 +84,35 @@ public class HouseCabinetController {
 		model.addAttribute("updateUser", new ChangeUserModel());
 		model.addAttribute("children", childrenService.findAllChildrenByHouse(id));
 		model.addAttribute("wishes", presentService.findAllPresents());
+		
 		return "house-cabinet";
 	}
 	
 	@Transactional
 	@RequestMapping(value = { "/house/{id}/newchild" }, method = RequestMethod.POST)
 	public String newCat(@Valid Child child, BindingResult result, @PathVariable int id, ModelMap model) {
-		
+		System.out.println("fddschild");
 		if (result.hasErrors()) {
 			System.out.println(result.getAllErrors().toString());
 			return "redirect:/house";
 		}
-
+		
+		HashSet<Wish> wishes = new HashSet<Wish>();
 		child.setHouse(houseService.findById(id));
-		childrenService.saveChild(child);
+		Child c = new Child();
+		c.setBirthDate(child.getBirthDate());
+		child.setWishes(wishes);
+		c.setDescription(child.getDescription());
+		c.setFirstName(child.getFirstName());
+		c.setLastName(child.getLastName());
+		c.setHouse(child.getHouse());
+		c.setSex(child.getSex());
+		
+		
+		
+		System.out.println("house= " + child.getHouse().getId());
+		childrenService.saveChild(c);
+		System.out.println("test");
 
 		model.addAttribute("loggedinuser", getPrincipal());
 
