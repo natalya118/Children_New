@@ -26,9 +26,9 @@ public class WishController {
 	@Autowired
 	private UserService us;
 	@Autowired
-	private PresentService presentService;
+	PresentService presentService;
 	@Autowired
-	private PresentStatusService presentStatusService;
+	PresentStatusService presentStatusService;
 	
 	@Transactional
 @RequestMapping(value="/completeWish", method=RequestMethod.GET)

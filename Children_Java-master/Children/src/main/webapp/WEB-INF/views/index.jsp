@@ -130,8 +130,8 @@
                     <img src="<c:url value='/static/images/img_1.jpg'/>" class="img-responsive img-rounded">
                 </div>
                 <div class="col-md-4 to-animate">
-                    <h2>Зачем мы это сделали</h2>
-                    <p>типа много текста, зачем мы это делали</p>
+                    <h2>Мета проекту</h2>
+                    <p>Зробити так, щоб у цьому світі було менше самотності</p>
                     <p><a href="https://github.com/natalya118/Children_New" class="btn btn-primary">Наша команда</a></p>
                 </div>
             </div>
@@ -145,24 +145,24 @@
                             <div class="person">
                                 <img src="http://i.imgur.com/AliJoXr.gif" class="img-responsive img-rounded" alt="Person">
                                 <h3 class="name">Наталія Дранчук</h3>
-                                <div class="position">Роль</div>
-                                <p>Подпись</p>
+                                <div class="position">Java Developer</div>
+                                <p>Хочу, аби у цьому світі було трохи менше суму</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center to-animate">
                             <div class="person">
                                 <img src="http://data.whicdn.com/images/124857899/original.gif" class="img-responsive img-rounded" alt="Person">
                                 <h3 class="name">Юлія Подпругіна</h3>
-                                <div class="position">Роль</div>
-                                <p>Подпись</p>
+                                <div class="position">Frontend Developer</div>
+                                <p>Люблю робити все навколо гарним</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center to-animate">
                             <div class="person">
                                 <img src="https://s-media-cache-ak0.pinimg.com/originals/7a/74/15/7a7415cff43a866092668e8c05f1b27e.gif" class="img-responsive img-rounded" alt="Person">
                                 <h3 class="name">Олексій Ретізник</h3>
-                                <div class="position">Роль</div>
-                                <p>Подпись</p>
+                                <div class="position">Java Developer</div>
+                                <p>Вважаю, що IT змінює світ</p>
                             </div>
                         </div>
                     </div>
